@@ -97,16 +97,19 @@ public class LoguinActivity extends AppCompatActivity {
 
                             }catch (FirebaseAuthInvalidCredentialsException e){
 
-                                Toast.makeText(getApplicationContext(), "Dados inválido", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),
+                                        "Dados inválido", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
 
                             }catch (FirebaseAuthEmailException e){
 
-                                Toast.makeText(getApplicationContext(), "E-mail de Usuário inválido ou não cadastrado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),
+                                        "E-mail de Usuário inválido ou não cadastrado", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
 
                             }catch (FirebaseAuthInvalidUserException e){
-                                Toast.makeText(getApplicationContext(), "Usuário não cadastrado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(),
+                                        "Usuário não cadastrado", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
 
                             } catch (Exception e){
@@ -115,7 +118,8 @@ public class LoguinActivity extends AppCompatActivity {
                         }
 
                     }
-                }).addOnFailureListener(new OnFailureListener() {
+                })
+                .addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Toast.makeText(getApplicationContext(), "Falha ao autenticar Usuário", Toast.LENGTH_SHORT).show();

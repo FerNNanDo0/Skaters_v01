@@ -6,4 +6,7 @@
     <string name="hint_senha"> Senha</string>
     <string name="hint_nome"> Nome</string>
     <string name="textBtn_Logar">Logar</string>
+    <string name="confirm_senha">Confime a senha</string>
+    <string name="btnCadastrar">Cadastrar</string>
+    <string name="hint_nome">Nome</string>
 </resources>

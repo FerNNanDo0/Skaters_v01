@@ -1,9 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".activitys.CadastroActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/skate_is_life" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextNomeCad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="@string/hint_nome"
+        android:inputType="textEmailAddress"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/EditTextView_textColor_padrao"
+        android:textColorHint="@color/blue_hint"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextEmailCad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:maxLength="25"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/EditTextView_textColor_padrao"
+        android:textColorHint="@color/blue_hint"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextPasswordCad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:hint="@string/hint_senha"
+        android:inputType="textPassword"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/EditTextView_textColor_padrao"
+        android:textColorHint="@color/blue_hint"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextPasswordCadComfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="@string/confirm_senha"
+        android:inputType="textPassword"
+        android:maxLength="15"
+        android:maxLines="1"
+        android:minHeight="48dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/EditTextView_textColor_padrao"
+        android:textColorHint="@color/blue_hint"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/buttonCadastrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/cor_padrao_blue_dark"
+        android:text="@string/btnCadastrar"
+        app:rippleColor="@color/rippleColorBtn" />
+
+</LinearLayout>
