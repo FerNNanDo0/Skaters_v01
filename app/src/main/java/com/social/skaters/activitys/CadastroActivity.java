@@ -47,6 +47,11 @@ public class CadastroActivity extends AppCompatActivity {
         textSenha = findViewById(R.id.editTextPasswordCad);
         textSenhaConfirme = findViewById(R.id.editTextPasswordCadComfirm);
 
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Cadastro Skaters");
+        }
+
         // button de cadastrar Usuário
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +114,9 @@ public class CadastroActivity extends AppCompatActivity {
                             // user cadastrado com sucesso
                             mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity( mainActivity );
+
+                            finish();
+
                         }else{
 
                             try{

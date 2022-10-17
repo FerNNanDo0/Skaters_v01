@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/layout/activity_cadastro.xml" value="0.25" />
-        <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/layout/activity_loguin.xml" value="0.25" />
+        <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/layout/activity_cadastro.xml" value="0.16" />
+        <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/layout/activity_loguin.xml" value="0.14" />
         <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/layout/activity_main.xml" value="0.20925925925925926" />
         <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/layout/nav_header_main.xml" value="0.20925925925925926" />
         <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/menu/menu_drawer.xml" value="0.33" />
+        <entry key="..\:/Users/Fernando.DESKTOP-G4LLCM7/AndroidStudioProjects/Skaters/app/src/main/res/menu/menu_main.xml" value="0.14722222222222223" />
       </map>
     </option>
   </component>

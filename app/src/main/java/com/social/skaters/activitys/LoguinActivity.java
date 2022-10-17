@@ -46,6 +46,10 @@ public class LoguinActivity extends AppCompatActivity {
         textEmailLog = findViewById(R.id.editTextEmailLog);
         textSenhaLog = findViewById(R.id.editTextPasswordLog);
 
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setTitle("Loguin Skaters");
+        }
+
         // btnLogar User no App
         btnLogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +94,8 @@ public class LoguinActivity extends AppCompatActivity {
                             // user logado com sucesso
                             mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity( mainActivity );
+
+                            finish();
                         }else{
 
                             try{
@@ -140,6 +146,8 @@ public class LoguinActivity extends AppCompatActivity {
             // se ja tem um user logado vai para tela MAIN.
             mainActivity = new Intent(this, MainActivity.class);
             startActivity( mainActivity );
+
+            finish();
         }
     }
 
