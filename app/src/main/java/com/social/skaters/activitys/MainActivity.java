@@ -1,23 +1,33 @@
-package com.social.skaters;
+package com.social.skaters.activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.social.skaters.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private DrawerLayout drawer;
-    private ActionBarDrawerToggle toggle;
-    private NavigationView navigationView;
+    DrawerLayout drawer;
+    ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
+
+    RecyclerView recyclerViewMain;
+
+    LinearLayout layoutPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +36,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = findViewById(R.id.drawer_main);
         navigationView = findViewById(R.id.nav_view);
+        layoutPerfil = findViewById(R.id.editInfoUser);
+        recyclerViewMain = findViewById(R.id.recyclerViewMain);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setElevation(0);
-            getSupportActionBar().setTitle("");
+            //getSupportActionBar().setTitle("");
         }
 
         toggle = new ActionBarDrawerToggle(this, drawer, R.string.nav_open, R.string.nav_close);
@@ -39,12 +51,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         toggle.syncState();
 
+        // config adapterMain
+
+        // config RecyclerView Main
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerViewMain.setLayoutManager(layoutManager);
+        recyclerViewMain.setHasFixedSize(true);
+//        recyclerViewMain.setAdapter();
+
     }
 
 
-    public void infoUser(View v) {
-        Toast.makeText(this, "Editar informações do usuario", Toast.LENGTH_SHORT).show();
-        drawer.closeDrawer(GravityCompat.START);
+    public void editInfoUser() {
+        layoutPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),
+                        "Editar informações do usuario",
+                        Toast.LENGTH_SHORT).show();
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
     }
 
     @Override
@@ -72,5 +99,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if ( toggle.onOptionsItemSelected( item ) ){
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

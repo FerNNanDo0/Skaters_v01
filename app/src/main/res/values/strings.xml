@@ -2,4 +2,8 @@
     <string name="app_name">Skaters</string>
     <string name="nav_open">open</string>
     <string name="nav_close">close</string>
+    <string name="hint_email"> E-mail</string>
+    <string name="hint_senha"> Senha</string>
+    <string name="hint_nome"> Nome</string>
+    <string name="textBtn_Logar">Logar</string>
 </resources>

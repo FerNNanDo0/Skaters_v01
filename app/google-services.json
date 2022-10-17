@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "554234064817",
+    "project_id": "skater-s",
+    "storage_bucket": "skater-s.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554234064817:android:079a0243bc38fa20525790",
+        "android_client_info": {
+          "package_name": "com.social.skaters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554234064817-og1g7ksn08h5cdop4ql65aqcifejfjcs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.social.skaters",
+            "certificate_hash": "c0323c9e58092280dbb4b06e057aac40a64783eb"
+          }
+        },
+        {
+          "client_id": "554234064817-2trrnqhic8l7uf45gabb3p2nujk822ce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDILJoSC8mgKlf6cFOpb2cSRMWWtukqGkg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554234064817-2trrnqhic8l7uf45gabb3p2nujk822ce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
