@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,9 +18,14 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.social.skaters.R;
+import com.social.skaters.firebaseRef.FirebaseRef;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth userLogado;
 
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
@@ -45,8 +51,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //getSupportActionBar().setTitle("");
         }
 
+        //abrir tela de config user
+        editInfoUser();
+
         toggle = new ActionBarDrawerToggle(this, drawer, R.string.nav_open, R.string.nav_close);
-        drawer.addDrawerListener( toggle );
+        drawer.addDrawerListener(toggle);
 
         navigationView.setNavigationItemSelectedListener(this);
         toggle.syncState();
@@ -103,14 +112,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if ( toggle.onOptionsItemSelected( item ) ){
+        if (toggle.onOptionsItemSelected(item)) {
             return true;
+        }
+
+        switch (item.getItemId()) {
+            case R.id.logout:
+                userLogado = FirebaseRef.getFirebaseAuthRef();
+                userLogado.signOut();
+
+                Intent logActivity = new Intent(this, LoguinActivity.class);
+                startActivity(logActivity);
+                finish();
+
+                break;
+
+            case R.id.itemConfigUser:
+                Toast.makeText(getApplicationContext(),
+                        "configuração do usuário", Toast.LENGTH_SHORT).show();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
