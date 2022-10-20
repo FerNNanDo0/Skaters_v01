@@ -16,22 +16,27 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthEmailException;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.database.DatabaseReference;
 import com.social.skaters.R;
 import com.social.skaters.firebaseRef.FirebaseRef;
+import com.social.skaters.models.User;
+
+import java.util.Objects;
 
 public class CadastroActivity extends AppCompatActivity {
 
     private FirebaseAuth cadastrarUser;
+    private DatabaseReference db_user;
 
     private Button btnCadastrar;
 
     private TextInputEditText textNome, textEmail, textSenha, textSenhaConfirme ;
 
     String nome, email, senha, confirmeSenha;
+
+    User user;
 
     Intent mainActivity;
 
@@ -71,8 +76,16 @@ public class CadastroActivity extends AppCompatActivity {
 
                                 if ( senha.equals(confirmeSenha) ){
 
-                                    //cadastrarUserFirebase( email, senha, nome);
-                                    cadastrarUserFirebase(email, senha, nome);
+                                    // salvar informacao do usuario
+                                    user = new User();
+                                    user.setNome( nome );
+                                    user.setEmail( email );
+                                    user.setSenha( senha );
+                                    user.setUrlFoto("");
+                                    user.setNivel("");
+
+                                 //cadastrarUserFirebase( email, senha, nome);
+                                    cadastrarUserFirebase(user);
 
                                 }else{
                                     Toast.makeText(getApplicationContext(), "As senhas de cadastro são diferentes", Toast.LENGTH_SHORT).show();
@@ -101,15 +114,17 @@ public class CadastroActivity extends AppCompatActivity {
 
 
     //
-    public void cadastrarUserFirebase(String email, String senha, String nome){
+    public void cadastrarUserFirebase(User user){
 
         cadastrarUser = FirebaseRef.getFirebaseAuthRef();
 
-        cadastrarUser.createUserWithEmailAndPassword( email, senha)
+        cadastrarUser.createUserWithEmailAndPassword( user.getEmail(), user.getSenha() )
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if ( task.isSuccessful()){
+
+                            user.salvarDadosNo_db();
 
                             // user cadastrado com sucesso
                             mainActivity = new Intent(getApplicationContext(), MainActivity.class);
@@ -120,8 +135,7 @@ public class CadastroActivity extends AppCompatActivity {
                         }else{
 
                             try{
-
-                                throw task.getException();
+                                throw Objects.requireNonNull(task.getException());
 
                             }catch (FirebaseAuthWeakPasswordException e){
 

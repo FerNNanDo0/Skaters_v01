@@ -27,7 +27,7 @@
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/hint_nome"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:maxLength="35"
         android:maxLines="1"
         android:minHeight="48dp"
